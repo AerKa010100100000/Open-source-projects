@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cx330.mapper.ServiceInfoMapper">
+    <select id="queryServiceInfo" resultType="com.cx330.entity.ServiceInfo">
+        select * from service_info
+        <trim prefix="WHERE" prefixOverrides="AND |OR ">
+            <if test="serviceName != null">
+                service_name like CONCAT('%', #{serviceName}, '%')
+            </if>
+            <if test="serviceCode != null">
+                AND service_code like CONCAT('%', #{serviceCode}, '%')
+            </if>
+        </trim>
+    </select>
+
+</mapper>
+<!--
+
+<trim> 标签有以下几个主要属性：
+    prefix：在包含的内容前加上前缀。
+    suffix：在包含的内容后加上后缀。
+    prefixOverrides：去除包含内容前的指定字符串。
+    suffixOverrides：去除包含内容后的指定字符串。
+
+-->

@@ -1,0 +1,26 @@
+2024-08-02T19:09:58.895+08:00  INFO 18292 --- [department] [main] c.c.department.DepartmentApplication     : Starting DepartmentApplication using Java 18.0.2 with PID 18292 (D:\Program Files\JetBrains\JavaProject\ERP\EIM\department\target\classes started by Admin in D:\Program Files\JetBrains\JavaProject\ERP)
+2024-08-02T19:09:58.901+08:00  INFO 18292 --- [department] [main] c.c.department.DepartmentApplication     : No active profile set, falling back to 1 default profile: "default"
+2024-08-02T19:09:59.193+08:00 DEBUG 18292 --- [department] [main] o.m.s.b.a.MybatisAutoConfiguration       : Searching for mappers annotated with @Mapper
+2024-08-02T19:09:59.194+08:00 DEBUG 18292 --- [department] [main] o.m.s.b.a.MybatisAutoConfiguration       : Using auto-configuration base package 'com.cx330.department'
+2024-08-02T19:09:59.250+08:00 DEBUG 18292 --- [department] [main] o.m.s.mapper.ClassPathMapperScanner      : Identified candidate component class: file [D:\Program Files\JetBrains\JavaProject\ERP\EIM\department\target\classes\com\cx330\department\mapper\DepartBudgetMapper.class]
+2024-08-02T19:09:59.250+08:00 DEBUG 18292 --- [department] [main] o.m.s.mapper.ClassPathMapperScanner      : Identified candidate component class: file [D:\Program Files\JetBrains\JavaProject\ERP\EIM\department\target\classes\com\cx330\department\mapper\DepartCompanyMapper.class]
+2024-08-02T19:09:59.250+08:00 DEBUG 18292 --- [department] [main] o.m.s.mapper.ClassPathMapperScanner      : Identified candidate component class: file [D:\Program Files\JetBrains\JavaProject\ERP\EIM\department\target\classes\com\cx330\department\mapper\DepartMapper.class]
+2024-08-02T19:09:59.250+08:00 DEBUG 18292 --- [department] [main] o.m.s.mapper.ClassPathMapperScanner      : Identified candidate component class: file [D:\Program Files\JetBrains\JavaProject\ERP\EIM\department\target\classes\com\cx330\department\mapper\PositionDepartmentMapper.class]
+2024-08-02T19:09:59.251+08:00 DEBUG 18292 --- [department] [main] o.m.s.mapper.ClassPathMapperScanner      : Creating MapperFactoryBean with name 'departBudgetMapper' and 'com.cx330.department.mapper.DepartBudgetMapper' mapperInterface
+2024-08-02T19:09:59.260+08:00 DEBUG 18292 --- [department] [main] o.m.s.mapper.ClassPathMapperScanner      : Creating MapperFactoryBean with name 'departCompanyMapper' and 'com.cx330.department.mapper.DepartCompanyMapper' mapperInterface
+2024-08-02T19:09:59.264+08:00 DEBUG 18292 --- [department] [main] o.m.s.mapper.ClassPathMapperScanner      : Creating MapperFactoryBean with name 'departMapper' and 'com.cx330.department.mapper.DepartMapper' mapperInterface
+2024-08-02T19:09:59.267+08:00 DEBUG 18292 --- [department] [main] o.m.s.mapper.ClassPathMapperScanner      : Creating MapperFactoryBean with name 'positionDepartmentMapper' and 'com.cx330.department.mapper.PositionDepartmentMapper' mapperInterface
+2024-08-02T19:09:59.478+08:00  INFO 18292 --- [department] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8015 (http)
+2024-08-02T19:09:59.486+08:00  INFO 18292 --- [department] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-08-02T19:09:59.486+08:00  INFO 18292 --- [department] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.25]
+2024-08-02T19:09:59.524+08:00  INFO 18292 --- [department] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-08-02T19:09:59.524+08:00  INFO 18292 --- [department] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 598 ms
+2024-08-02T19:09:59.582+08:00  INFO 18292 --- [department] [main] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2024-08-02T19:09:59.877+08:00  INFO 18292 --- [department] [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2024-08-02T19:10:00.310+08:00 DEBUG 18292 --- [department] [main] o.mybatis.spring.SqlSessionFactoryBean   : Parsed configuration file: 'class path resource [mybatis/mybatis-config.xml]'
+2024-08-02T19:10:00.311+08:00 DEBUG 18292 --- [department] [main] o.mybatis.spring.SqlSessionFactoryBean   : Property 'mapperLocations' was not specified.
+2024-08-02T19:10:00.533+08:00 DEBUG 18292 --- [department] [main] o.m.s.b.a.MybatisAutoConfiguration       : Not found configuration for registering mapper bean using @MapperScan, MapperFactoryBean and MapperScannerConfigurer.
+2024-08-02T19:10:00.584+08:00  INFO 18292 --- [department] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8015 (http) with context path ''
+2024-08-02T19:10:00.588+08:00  INFO 18292 --- [department] [main] c.c.department.DepartmentApplication     : Started DepartmentApplication in 1.973 seconds (process running for 2.511)
+2024-08-02T19:10:05.098+08:00  INFO 18292 --- [department] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closing ...
+2024-08-02T19:10:05.115+08:00  INFO 18292 --- [department] [SpringApplicationShutdownHook] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed

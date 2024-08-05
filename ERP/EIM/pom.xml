@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.Cx330</groupId>
+        <artifactId>ERP</artifactId>
+        <version>0.0.1</version>
+    </parent>
+    <artifactId>EIM</artifactId>
+    <version>0.0.1</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <!-- 用户管理模块 -->
+        <module>user</module>
+        <!-- 公司信息基本信息模块 -->
+        <module>firm</module>
+        <!-- 部门管理模块 -->
+        <module>department</module>
+        <!-- 岗位管理模块 -->
+        <module>position</module>
+    </modules>
+
+    <properties>
+        <version.entity>0.0.1-SNAPSHOT</version.entity>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.Cx330</groupId>
+            <artifactId>entity</artifactId>
+            <version>${version.entity}</version>
+        </dependency>
+    </dependencies>
+
+
+</project>

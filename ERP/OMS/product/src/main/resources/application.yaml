@@ -1,0 +1,63 @@
+spring:
+  application:
+    name: product
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # useUnicode=true：表示在与数据库建立连接时要使用Unicode编码。这个参数确保数据库连接正确地处理Unicode字符数据。
+    # characterEncoding=utf-8：指定了在连接过程中要使用的字符编码。在这里，设置为UTF-8，这意味着在通信中使用UTF-8编码，确保正确地处理和存储Unicode字符数据。
+    # serverTimezone=UTC：指定了数据库服务器的时区为协调世界时（UTC）。这是为了正确处理日期和时间，在不同时区之间进行正确的转换和比较。
+    url: jdbc:mysql://localhost:3306/rep_databases?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: 123456
+    # 配置Druid连接池参数
+    druid:
+      initial-size: 5 # 连接池初始化大小
+      min-idle: 5 # 连接池最小空闲
+      max-active: 20 # 连接池最大活跃数
+      max-wait: 60000 # 连接池最大等待时间
+      time-between-eviction-runs-millis: 60000 # 连接池中连接的最大生命周期
+      min-evictable-idle-time-millis: 300000 # 连接池中连接的最小生命周期
+      validation-query: SELECT 1 # 连接池验证SQL
+      test-while-idle: true # 连接池中连接的测试
+      test-on-borrow: false # 获取连接时是否进行连接测试
+      test-on-return: false # 归还连接时是否进行连接测试
+      pool-prepared-statements: false # 是否缓存PreparedStatement
+      max-open-prepared-statements: 20 # 缓存PreparedStatement的最大数量
+      stat-view-servlet:
+        # 是否启用StatViewServlet默认值true
+        enabled: true
+        # 访问路径为/druid时，跳转到StatViewServlet
+        url-pattern: /druid/*
+        # 是否能够重置数据
+        reset-enable: false
+        # 需要账号密码才能访问控制台，默认为root
+        login-username: root
+        login-password: 123456
+  # 配置连接数据库时初始化
+  sql:
+    init:
+      mode: always # 启动时是否执行SQL脚本，always：每次启动都执行，never：从不执行，none：如果没有SQL脚本，则不执行。
+      schema-locations: classpath:script.sql #sql脚本路径
+# mybatis配置
+mybatis:
+  check-config-location: true
+  config-location: "classpath:mybatis/mybatis-config.xml" # mybatis框架配置文件，对mybatis的生命周期起作用
+  mapper-locations: "classpath:mybatis/mapper/*.xml"   # 配置xml路径
+  type-aliases-package: "com.cx330.entity.*"   #  配置model包路径
+# 配置日志文件
+logging:
+  level:
+    org.mybatis: debug
+    com.cx330.mapper: debug
+  file:
+    path: logs/supplier
+  logback:
+    rolling-policy:
+      max-history: 30
+      max-file-size: 100MB
+      total-size-cap: 100MB
+server:
+  port: 8022
+
+

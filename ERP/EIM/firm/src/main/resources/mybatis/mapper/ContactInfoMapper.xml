@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cx330.mapper.ContactInfoMapper">
+    <!-- 通过contact_type查询联系方式 -->
+    <select id="queryContactInfo" resultType="com.cx330.entity.ContactInfo">
+            select * from contact_info
+            <if test="contactType!= null">
+                <where>
+                    <if test="contactType!= ''">
+                        contact_type = #{contactType}
+                    </if>
+                </where>
+            </if>
+    </select>
+</mapper>

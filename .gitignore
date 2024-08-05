@@ -1,0 +1,6 @@
+# 忽略所有target目录
+target/
+
+# 忽略idea相关文件
+.idea/
+

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cx330.mapper.CompanyDetailedMapper">
+
+    <resultMap id="CompanyInfoDetailed" type="com.cx330.entity.CompanyInfo">
+        <id property="companyId" column="company_id"/>
+        <result property="name" column="name"/>
+        <result property="legalName" column="legal_name"/>
+        <result property="taxRegistrationNumber" column="tax_registration_number"/>
+        <result property="registrationDate" column="registration_date" javaType="java.util.Date"/>
+        <result property="type" column="type"/>
+        <result property="industryType" column="industry_type"/>
+        <result property="website" column="website"/>
+        <result property="logo" column="logo"/>
+        <result property="updatedAt" column="updated_at" javaType="java.util.Date"/>
+        <association property="contactInfo" javaType="com.cx330.entity.ContactInfo">
+            <id property = "contactId" column = "contact_id"/>
+            <result property="companyId" column="company_id"/>
+            <result property="contactType" column="contact_type"/>
+            <result property="phoneNumber" column="phone_number"/>
+            <result property="faxNumber" column="fax_number"/>
+            <result property="email" column="email"/>
+        </association>
+        <collection property="addressList" ofType="com.cx330.entity.AddressInfo">
+            <id property="addressId" column="address_id"/>
+            <result property="companyId" column="company_id"/>
+            <result property="addressLine" column="address_line"/>
+            <result property="city" column="city"/>
+            <result property="stateProvince" column="state_province"/>
+            <result property="country" column="country"/>
+            <result property="postalCode" column="postal_code"/>
+        </collection>
+        <collection property="serviceInfo" ofType="com.cx330.entity.ServiceInfo">
+            <id property="serviceId" column="service_id"/>
+            <result property="serviceName" column="service_name"/>
+            <result property="serviceCode" column="service_code"/>
+            <result property="unitPrice" column="unit_price"/>
+            <result property="companyId" column="company_id"/>
+        </collection>
+    </resultMap>
+
+
+    <!-- 查询所有公司信息 -->
+    <select id="selectAll" resultMap="CompanyInfoDetailed">
+        SELECT
+            company_info.company_id,
+            company_info.name,
+            company_info.legal_name,
+            company_info.tax_registration_number,
+            company_info.registration_date,
+            company_info.type,
+            company_info.industry_type,
+            company_info.website,
+            company_info.logo,
+            company_info.updated_at,
+            address_info.address_id,
+            address_info.company_id,
+            address_info.address_line,
+            address_info.city,
+            address_info.state_province,
+            address_info.country,
+            address_info.postal_code,
+            contact_info.contact_id,
+            contact_info.contact_type,
+            contact_info.phone_number,
+            contact_info.fax_number,
+            contact_info.email,
+            service_info.service_id,
+            service_info.service_name,
+            service_info.service_code,
+            service_info.unit_price
+        FROM
+            company_info
+                LEFT JOIN
+            address_info ON company_info.company_id = address_info.company_id
+                LEFT JOIN
+            contact_info ON company_info.company_id = contact_info.company_id
+                LEFT JOIN
+            service_info ON company_info.company_id = service_info.company_id
+    </select>
+
+</mapper>
